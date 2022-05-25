@@ -5,7 +5,7 @@ from datetime import datetime
 # Salvar a data de hoje em uma variavel
 today = datetime.now()
 #formatação da data e hora
-logdt = today.strftime(" %d.%b.%Y - %H-%M-%S")
+logdt = today.strftime("menu.py %d.%b.%Y - %H-%M-%S")
 
 #Tentar executar essa ação
 try:
