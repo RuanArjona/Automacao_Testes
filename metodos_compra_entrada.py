@@ -40,52 +40,14 @@ def salvaNumeroPedComp():
 
 #Método Inserir Número do Pedido Compra na tela de Histórico de Movimentos
 def insereNumeroPedComp():
-    #Abre o Menu Principal    
-    pyautogui.hotkey('ctrl','1')
-    time.sleep(15)
-    #Atalho >> Menu Superior > Histórico
-    pyautogui.hotkey('shift','f8')
-    time.sleep(10)
-    #Digita no campo Classe do Mov. = "pedido compra"
-    pyautogui.write("pedido compra")
-    #Faz a verificação se o Pedido Compra está selecionado
-    while pyautogui.locateOnScreen(rf"{path}\hist_mov_class_mov_ped_comp.png", confidence=0.9) == False:
-        pyautogui.press('down')
-        time.sleep(2)
-    else:
-        pyautogui.press('enter')
-        print("Encontrou a classe Pedido Compra e clicou ENTER")
-        time.sleep(2)
-        
-    time.sleep(5)
-    '''#Aperta a tecla enter
-    pyautogui.press('enter')
-    time.sleep(2)
-    #Insere a data = 01/01/2019
-    pyautogui.write("010119")
-    time.sleep(2)
-    pyautogui.press('enter')
-    time.sleep(2)'''
-    #Aperta tab 11 vezes até o campo Nº Documento
-    pyautogui.press('tab', presses=12)
-    time.sleep(5)
-    #Maximiza o txt do número do Pedido Compra
-    pyautogui.getWindowsWithTitle("NUMERO-PEDIDO-COMPRA.txt - Bloco de Notas")[0].maximize()
-    #Seleciona o Campo Nº do Pedido Compra
-    time.sleep(2)
-    pyautogui.press('end')
-    time.sleep(2)
-    pyautogui.hotkey('shiftleft', 'shiftright','home')
-    time.sleep(2)
-    #Copia o Nº do Pedido Compra
-    pyautogui.hotkey('ctrl','c')
-    time.sleep(2)
-    #Minimiza o txt
-    pyautogui.getWindowsWithTitle("NUMERO-PEDIDO-COMPRA.txt - Bloco de Notas")[0].minimize()
-    time.sleep(5)
-    #Cola o Nº do Pedido Compra do txt no Histórico de Movimentos
-    pyautogui.hotkey('ctrl','v')
-    time.sleep(10)
+    #Abre o txt com Nº Ped Compra
+    f=open(rf"{pathdoc}\ NUMERO-PEDIDO-COMPRA.txt", "r")
+    #Verifica se esta em modo de leitura
+    if f.mode == 'r':
+        #Lê conteudo do arquivo
+        num_ped_comp = f.read()
+        #Escreve conteudo
+        pyautogui.write(num_ped_comp)
 #=================================================================================================
 #Método Concluir Pedido Compra
 #Implementado - Fernando 13/05/2022
