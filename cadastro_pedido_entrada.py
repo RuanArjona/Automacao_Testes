@@ -68,3 +68,4 @@ def cadastroPedEntrada():
     #Clica no botão X para fechar a tela que está aberta
     fechaTela()
     
+    fechaTela()

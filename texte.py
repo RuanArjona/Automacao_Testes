@@ -16,6 +16,7 @@ or, readlines reads the individual line into a list
 fl =f.readlines()
 for x in fl:
 print x        f.write("This is line %d\r\n" % (i+1))
+        f.write("This is line %d\r\n" % (i+1))
 f.close()
 #Open the file back and read the contents
 #f=open("guru99.txt", "r")
