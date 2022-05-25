@@ -67,3 +67,4 @@ def cadastroPedEntrada():
     time.sleep(5)
     #Clica no botão X para fechar a tela que está aberta
     fechaTela()
+    
