@@ -2,11 +2,13 @@ import pyautogui
 import time
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
+import clipboard
 
 #Fernando 26/11/2021
 #Caminho da pasta em uma variável
 
 path = (rf"\\vm-srvfile01\Testes\Projeto-automacao\Teste Automatizado OuroWeb\bin\project\tests\img")
+pathdoc = (rf"\\vm-srvfile01\Testes\Projeto-automacao\Teste Automatizado OuroWeb\bin\project\tests\doc")
 
 #Método Implementado 13/05/2022
 #Método para clicar no botão Filtro na tela de Histórico de Movimentos
@@ -24,27 +26,12 @@ def salvaNumeroPedComp():
     time.sleep(5)
     #Copia o Nº do Pedido
     pyautogui.hotkey('ctrl','c')
+    num_ped_comp = clipboard.paste()
     time.sleep(2)
     #Abre o windows + r
-    pyautogui.hotkey('win','r')
-    time.sleep(5)
-    #Escreve notepad e aperta enter
-    pyautogui.write("notepad")
-    time.sleep(2)
-    pyautogui.press('enter')
-    time.sleep(2)
-    #Cola o Nº do Pedido no txt
-    pyautogui.hotkey('ctrl','v')
-    time.sleep(2)
-    #Salva o txt como NUMERO-PEDIDO
-    pyautogui.hotkey('ctrl','s')
-    time.sleep(2)
-    pyautogui.write("NUMERO-PEDIDO-COMPRA")
-    time.sleep(1)
-    pyautogui.press('enter')
-    time.sleep(10)
-    #Minimiza o txt
-    pyautogui.getWindowsWithTitle("NUMERO-PEDIDO-COMPRA.txt - Bloco de Notas")[0].minimize()
+    f= open(rf"{pathdoc}\ NUMERO-PEDIDO-COMPRA.txt","w+")
+    f.write(num_ped_comp)
+    f.close()
     time.sleep(5)
 #=================================================================================================
 #Implementado - Fernando 13/05/2022

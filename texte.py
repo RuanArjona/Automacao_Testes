@@ -1,6 +1,6 @@
-path2 = (rf"\\vm-srvfile01\Testes\Projeto-automacao\Teste Automatizado OuroWeb\bin\project\tests\doc")
+pathdoc = (rf"\\vm-srvfile01\Testes\Projeto-automacao\Teste Automatizado OuroWeb\bin\project\tests\doc")
 
-f= open(rf"{path2}\guru99.txt","w+")
+f= open(rf"{pathdoc}\guru99.txt","w+")
 #f=open(rf"{path2}\guru99.txt","a+")
 for i in range(10):
         f.write("This is line %d\r\n" % (i+1))
