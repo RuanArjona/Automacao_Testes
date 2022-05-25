@@ -26,10 +26,12 @@ def salvaNumeroPedComp():
     time.sleep(5)
     #Copia o Nº do Pedido
     pyautogui.hotkey('ctrl','c')
+    #Salva Nº Pedido em uma Variavel
     num_ped_comp = clipboard.paste()
     time.sleep(2)
-    #Abre o windows + r
+    #Cria arquivo txt
     f= open(rf"{pathdoc}\ NUMERO-PEDIDO-COMPRA.txt","w+")
+    #Escreve variavel nele
     f.write(num_ped_comp)
     f.close()
     time.sleep(5)
@@ -275,29 +277,16 @@ def imppedsaida():
 
 #Método para salvar o número do Movimento de Compra em um txt
 def salvaNumeroCompEnt():
-    #Seleciona o Campo Nº do Movimento
+    #Seleciona o Campo Nº da Compra
     time.sleep(5)
-    #Copia o Nº do Movimento
+    #Copia o Nº da Compra
     pyautogui.hotkey('ctrl','c')
+    #Salva Nº Compra em uma Variavel
+    num_comp_ent = clipboard.paste()
     time.sleep(2)
-    #Abre o windows + r
-    pyautogui.hotkey('win','r')
-    time.sleep(5)
-    #Escreve notepad e aperta enter
-    pyautogui.write("notepad")
-    time.sleep(2)
-    pyautogui.press('enter')
-    time.sleep(2)
-    #Cola o Nº do Movimento no txt
-    pyautogui.hotkey('ctrl','v')
-    time.sleep(2)
-    #Salva o txt como NUMERO-COMPRA
-    pyautogui.hotkey('ctrl','s')
-    time.sleep(2)
-    pyautogui.write("NUMERO-COMPRA-ENTRADA")
-    time.sleep(1)
-    pyautogui.press('enter')
-    time.sleep(10)
-    #Minimiza o txt
-    pyautogui.getWindowsWithTitle("NUMERO-COMPRA-ENTRADA.txt - Bloco de Notas")[0].minimize()
+    #Cria arquivo txt
+    f= open(rf"{pathdoc}\ NUMERO-COMPRA-ENTRADA.txt","w+")
+    #Escreve variavel nele
+    f.write(num_comp_ent)
+    f.close()
     time.sleep(5)
